@@ -4,10 +4,10 @@ jobs:
     Lint-test:
         runs-on: ubuntu-latest
         steps:
-            - name: install dependences
-              run: npm ci   
             - name: checkout
               uses: actions/checkout@v3
+            - name: install dependences
+              run: npm ci   
             - name: testing lint
               run: npm run lint
             - name: runing test
