@@ -1,0 +1,18 @@
+name: Check the code
+on: push
+jobs:
+    Lint-test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: install dependences
+              run: npm install
+            - name: checkout
+              uses: actions/checkout@v3
+            - name: testing lint
+              run: npm run lint
+            - name: runing test
+              run: npm run test
+            - name: deploying
+              run: echo 'deploying'
+
+
