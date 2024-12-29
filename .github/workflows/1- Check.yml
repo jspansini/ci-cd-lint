@@ -25,12 +25,5 @@ jobs:
             - name: deploying
               run: echo 'deploying'
 
-            - name: Create production branch
-              env:
-                GH_TOKEN: ${{ secrets.GH_TOKEN }}
-              run: |
-                    git config --global user.name "github-actions[bot]"
-                    git config --global user.email "github-actions[bot]@users.noreply.github.com"
-                    git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/jspansini/ci-cd-lint.git
-                    git checkout -b production
-                    git push origin production
+            - name: Check the github variables
+              run: echo "${{ toJson(github.event) }}""
