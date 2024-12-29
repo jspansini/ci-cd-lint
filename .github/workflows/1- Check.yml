@@ -18,10 +18,9 @@ jobs:
         steps:
             - name: deploying
               run: echo 'deploying'
-            - name: Trigger second workflow
+            - name: Create production branch
               run: |
                 git config --global user.name "github-actions[bot]"
                 git config --global user.email "github-actions[bot]@users.noreply.github.com"
-                git commit --allow-empty -m "Trigger create-branch workflow"
-                git push origin main
-            
+                git checkout -b production
+                git push origin production
