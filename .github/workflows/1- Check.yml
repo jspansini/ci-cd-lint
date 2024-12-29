@@ -6,18 +6,25 @@ jobs:
         steps:
             - name: checkout
               uses: actions/checkout@v3
+              
             - name: install dependences
               run: npm ci   
+
             - name: testing lint
               run: npm run lint
+
             - name: runing test
               run: npm run test
     Deploy:
         runs-on: ubuntu-latest
         needs: Lint-test
         steps:
+            - name: checkout
+              uses: actions/checkout@v3
+
             - name: deploying
               run: echo 'deploying'
+
             - name: Create production branch
               run: |
                 git config --global user.name "github-actions[bot]"
